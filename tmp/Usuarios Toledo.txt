@@ -1,0 +1,126 @@
+URL:
+http://wtmsolutions.mpwebmaster.com.br/
+
+Usuarios : 
+admin_frontend - 54Dh%A3fuy2I
+wasantos - 54Dh%A3fuy2I
+cit.analista - User@123
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+GRAFANA
+https://view.monitoramento.proit.com.br/d/A6MYtZn4z/0-firewall-fortigate?orgId=1
+https://view.monitoramento.proit.com.br/d/pURLrKmVz/1011-simple-ping-monitoring?orgId=1&refresh=30s
+https://view.monitoramento.proit.com.br/playlists/play/1
+Pode logar com a conta a seguir:
+user: demo 
+Passwd: ,Mudar@123
+Passwd: ",Mudar123"
+
+https://view.monitoramento.proit.com.br/d/Q2dVYmQnk/ambiente-toledo?orgId=1&from=1661524060360&to=1664116060360&viewPanel=2
+
+
+API KEY
+URL: https://view.monitoramento.proit.com.br 
+Apontamento: /api/dashboards/home
+
+eyJrIjoiZlpacXc0SjRJRzRLRkZoMmhIbWNKNVJWU29rWnVhWFciLCJuIjoiYXBpTG9naW4iLCJpZCI6MX0=
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer eyJrIjoiZlpacXc0SjRJRzRLRkZoMmhIbWNKNVJWU29rWnVhWFciLCJuIjoiYXBpTG9naW4iLCJpZCI6MX0=");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://view.monitoramento.proit.com.br/d/Q2dVYmQnk/ambiente-toledo?orgId=1", requestOptions)
+.then(response => response.text())
+.then(result => console.log(result))
+.catch(error => console.log('error', error));
+
+-----------------------------------------------------------------------------------------
+http://proit-glpi-homolog.brazilsouth.cloudapp.azure.com/glpi/
+Novo: http://proit-glpi-homolog.brazilsouth.cloudapp.azure.com/glpi/apirest.php/
+Antigo: http://172.17.4.216/glpi/apirest.php/
+
+Usuarios : 
+admin_frontend - 54Dh%A3fuy2I
+cit.analista - User@123
+
+testempwebmaster - !123@456aB - Usuario
+mpwebmaster2 - !123@456aB - Administrador
+
+Power BI
+usuario: CloudSolution@CludSolution.onmicrosoft.com
+usuario2: cloud@cloudproit.onmicrosoft.com
+Senha: Powerbi2022
+Link:
+https://app.powerbi.com/groups/c16318b3-7696-4014-a870-917776c05558/reports/a16cb98e-744a-4280-852f-7786b4d87d41/ReportSection?redirectedFromSignup=1
+
+Id da Aplicacao:
+474eb558-bfa5-45e2-ac81-d362153eb898
+
+Id do objeto:
+56160a1d-9907-4d8a-9021-1ffa3699007a
+
+Client Secret
+iRK8Q~bpOaRoTs6~MWT7BeshgDQQCPu3YFe4Ib4B
+
+https://app.powerbi.com/reportEmbed?reportId=bba612ed-e2c2-457c-877f-17f69d698a4f&autoAuth=true&ctid=225fb06b-6643-4359-9ffa-8aaebaf8361e
+-----------------------------------------------------------------------------------------
+Grafana
+https://view.monitoramento.proit.com.br/login
+user: demo 
+Passwd: ,Mudar@123
+
+-----------------------------------------------------------------------------------------
+Requisição POSTMAN
+Url:
+https://login.microsoftonline.com/common/oauth2/token
+
+Headers:
+Content-Type
+application/x-www-form-urlencoded
+
+Body->Raw->Text
+
+grant_type=password
+&username={{CloudSolution@CludSolution.onmicrosoft.com}}
+&senha={{Powerbi2022}}
+&client_id={{474eb558-bfa5-45e2-ac81-d362153eb898}}
+&client_secret={{56160a1d-9907-4d8a-9021-1ffa3699007a}}
+&resource=https://analysis.windows.net/powerbi/api
+
+*********************************************************************************************************
+
+SELECT * FROM glpi_documents gd order by id desc limit 100;
+SELECT * FROM glpi_documents_items gdi order by id desc limit 100;
+SELECT * FROM glpi_itilfollowups order by id desc limit 100;
+
+SELECT 
+REPLACE(REPLACE(REPLACE( gi.content, "&lt;", "<"),"&quot;","\'"),"&gt;",">") as mensagem,
+gi.date_creation,
+gu.name as cliente,
+atend.name as tecnico,
+gtu.type,
+gitem.documents_id,
+doc.filename as nomeArquivo
+FROM glpi_itilfollowups gi
+INNER JOIN glpi_tickets t ON t.id = gi.items_id
+LEFT JOIN glpi_users gu ON gu.id = gi.users_id
+LEFT JOIN glpi_tickets_users gtu ON gtu.users_id = gu.id and gtu.`type` = 2
+LEFT JOIN glpi_users atend ON atend.id = gtu.users_id
+LEFT JOIN glpi_documents_items gitem on gitem.items_id = gi.id
+LEFT JOIN glpi_documents doc on doc.id =gitem.documents_id 
+
+
+criar diretorio wtm com permissao de leitura e escrita
+dentro de files
+files/wtm
+
+realizar o upload do arquivo uploadwtm.php dentro da raiz do projeto para a url de upload ficar acessivel atraves
+do endereço:
+http://proit-glpi-homolog.brazilsouth.cloudapp.azure.com/glpi/uploadwtm.php
+http://proit-glpi-homolog.brazilsouth.cloudapp.azure.com/glpi/files/wtm
